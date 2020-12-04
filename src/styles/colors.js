@@ -5,4 +5,5 @@ export default {
     comp_icon_active: '#007FF8',
     comp_icon_inative: '#D2D2D2',
     comp_plac_color: '#000000',
+    comp_tab_view: '#33FFFF',
 };

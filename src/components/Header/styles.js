@@ -3,7 +3,7 @@ import Constants from 'expo-constants';
 import colors from '../../styles/colors';
 
 export const Container = styled.View`
-    margin-top: ${`${2 * Constants.statusBarHeight}px`};
+    margin-top: ${`${Constants.statusBarHeight}px`};
     width: 100%;
     flex-direction: column;
     justify-content: center;
