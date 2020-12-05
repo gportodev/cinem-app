@@ -4,9 +4,12 @@ const MovieContext = createContext();
 
 export default function MovieProvider({ children }) {
     const [movies, setMovies] = useState();
+    const [favorites, setFavorites] = useState();
 
     return (
-        <MovieContext.Provider value={{ movies, setMovies }}>
+        <MovieContext.Provider
+            value={{ movies, setMovies, favorites, setFavorites }}
+        >
             {children}
         </MovieContext.Provider>
     );
@@ -17,5 +20,7 @@ export function useMovie() {
 
     const { movies, setMovies } = context;
 
-    return { movies, setMovies };
+    const { favorites, setFavorites } = context;
+
+    return { movies, setMovies, favorites, setFavorites };
 }
