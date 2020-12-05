@@ -28,6 +28,7 @@ import colors from '../../styles/colors';
 export default function Buscar() {
     const [movie, setMovie] = useState();
     const { movies, setMovies } = useMovie();
+    const { setFavorites } = useMovie();
 
     async function searchMovie() {
         if (movie === undefined) {
@@ -45,12 +46,14 @@ export default function Buscar() {
         }
     }
 
-    function addFavoriteMovie(id) {
-        const favoritesMovies = movies.map((m) => {
-            return m.imdbID === id ? { ...m, favorite: true } : m;
+    function addFavoriteMovie(item) {
+        const fav = movies.map((m) => {
+            return m.imdbID === item.imdbID ? { ...m, favorite: true } : m;
         });
 
-        setMovies(favoritesMovies);
+        setMovies(fav);
+
+        setFavorites(fav);
     }
 
     const renderItem = ({ item }) => (
@@ -64,7 +67,7 @@ export default function Buscar() {
                     <Data style={{ left: 25 }}>Ano:{item.Year}</Data>
                     <Icon
                         style={{ bottom: 13 }}
-                        onPress={() => addFavoriteMovie(item.imdbID)}
+                        onPress={() => addFavoriteMovie(item)}
                     >
                         {item.favorite ? (
                             <Feather

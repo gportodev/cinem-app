@@ -12,7 +12,7 @@
 - Ao baixar o projeto, use o yarn/npm para instalar as dependências do projeto;
 - Após o passo acima, dê um start na aplicação: 'expo start'/'yarn start';
 - Ao abrir a página no navegador com a instância em execução, escolha por onde deseja usar o cliente:
-  - Emulador: 
+  - Emulador:
     - Android Studio(https://developer.android.com/studio).
   - Dispositivo físico:
     - Expo Client(instale pela playstore, entre no 'Expo' e escaneie o 'QR Code' do navegador).
@@ -33,9 +33,5 @@
 
 ## Observações
 
-- Lista de pokémons: seguindo a paginação da própria API(20 pokémons).
-
-- Family tree: trás as evoluções dos pokémons
-
 - API: http://www.omdbapi.com/
- 
+

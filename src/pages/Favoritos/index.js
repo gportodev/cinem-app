@@ -20,14 +20,14 @@ import colors from '../../styles/colors';
 import { Container } from './styles';
 
 export default function Favoritos() {
-    const { movies, setMovies } = useMovie();
+    const { favorites, setFavorites } = useMovie();
 
-    function removeFavoriteMovie(id) {
-        const favoritesMovies = movies.map((m) => {
-            return m.imdbID === id ? { ...m, favorite: false } : m;
+    function removeFavoriteMovie(item) {
+        const favoritesMovies = favorites.map((m) => {
+            return m.imdbID === item.imdbID ? { ...m, favorite: false } : m;
         });
 
-        setMovies(favoritesMovies);
+        setFavorites(favoritesMovies);
     }
 
     const renderItem = ({ item }) => {
@@ -43,7 +43,7 @@ export default function Favoritos() {
                             <Data style={{ left: 25 }}>Ano:{item.Year}</Data>
                             <Icon
                                 style={{ bottom: 13 }}
-                                onPress={() => removeFavoriteMovie(item.imdbID)}
+                                onPress={() => removeFavoriteMovie(item)}
                             >
                                 <Feather
                                     name="star"
@@ -62,7 +62,7 @@ export default function Favoritos() {
             <Header />
 
             <List
-                data={movies}
+                data={favorites}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.imdbID}
                 showsVerticalScrollIndicator={false}
