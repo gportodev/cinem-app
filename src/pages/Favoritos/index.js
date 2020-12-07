@@ -21,13 +21,18 @@ import { Container } from './styles';
 
 export default function Favoritos() {
     const { favorites, setFavorites } = useMovie();
+    const { movies, setMovies } = useMovie();
 
     function removeFavoriteMovie(item) {
-        const favoritesMovies = favorites.map((m) => {
+        const filterMovie = favorites.filter((m) => m.imdbID !== item.imdbID);
+
+        setFavorites(filterMovie);
+
+        const updateMovies = movies.map((m) => {
             return m.imdbID === item.imdbID ? { ...m, favorite: false } : m;
         });
 
-        setFavorites(favoritesMovies);
+        setMovies(updateMovies);
     }
 
     const renderItem = ({ item }) => {
