@@ -7,7 +7,7 @@ export const Container = styled.View`
     background-color: ${colors.back};
 `;
 
-export const Search = styled.View`
+export const Find = styled.View`
     flex-direction: row;
     left: 10px;
 `;

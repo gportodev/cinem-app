@@ -11,7 +11,7 @@ import { Input } from '../../components/Input/styles';
 
 import Header from '../../components/Header';
 
-import { Container, Search } from './styles';
+import { Container, Find } from './styles';
 
 import {
     List,
@@ -28,7 +28,7 @@ import colors from '../../styles/colors';
 export default function Buscar() {
     const [movie, setMovie] = useState();
     const { movies, setMovies } = useMovie();
-    const { setFavorites } = useMovie();
+    const { favorites, setFavorites } = useMovie([]);
 
     async function searchMovie() {
         if (movie === undefined) {
@@ -53,7 +53,11 @@ export default function Buscar() {
 
         setMovies(fav);
 
-        setFavorites(fav);
+        if (favorites) {
+            setFavorites((state) => [...state, item]);
+        } else {
+            setFavorites([item]);
+        }
     }
 
     const renderItem = ({ item }) => (
@@ -92,7 +96,7 @@ export default function Buscar() {
         <Container>
             <Header />
 
-            <Search>
+            <Find>
                 <Input
                     placeholder="O que você busca..."
                     placeholderTextColor={colors.comp_plac_color}
@@ -106,7 +110,7 @@ export default function Buscar() {
                 <Button onPress={searchMovie}>
                     <Title>Buscar</Title>
                 </Button>
-            </Search>
+            </Find>
 
             <List
                 data={movies}
