@@ -31,30 +31,29 @@ export default function Favoritos() {
     }
 
     const renderItem = ({ item }) => {
-        if (item.favorite)
-            return (
-                <Card>
-                    <Column>
-                        <Line>
-                            <Ball />
-                            <Data>{item.Title}</Data>
-                        </Line>
-                        <Line style={{ justifyContent: 'space-between' }}>
-                            <Data style={{ left: 25 }}>Ano:{item.Year}</Data>
-                            <Icon
-                                style={{ bottom: 13 }}
-                                onPress={() => removeFavoriteMovie(item)}
-                            >
-                                <Feather
-                                    name="star"
-                                    size={24}
-                                    color={colors.comp_icon_active}
-                                />
-                            </Icon>
-                        </Line>
-                    </Column>
-                </Card>
-            );
+        return (
+            <Card>
+                <Column>
+                    <Line>
+                        <Ball />
+                        <Data>{item.Title}</Data>
+                    </Line>
+                    <Line style={{ justifyContent: 'space-between' }}>
+                        <Data style={{ left: 25 }}>Ano:{item.Year}</Data>
+                        <Icon
+                            style={{ bottom: 13 }}
+                            onPress={() => removeFavoriteMovie(item)}
+                        >
+                            <Feather
+                                name="star"
+                                size={24}
+                                color={colors.comp_icon_active}
+                            />
+                        </Icon>
+                    </Line>
+                </Column>
+            </Card>
+        );
     };
 
     return (
