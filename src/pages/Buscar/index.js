@@ -47,11 +47,11 @@ export default function Buscar() {
     }
 
     function addFavoriteMovie(item) {
-        const fav = movies.map((m) => {
+        const mo = movies.map((m) => {
             return m.imdbID === item.imdbID ? { ...m, favorite: true } : m;
         });
 
-        setMovies(fav);
+        setMovies(mo);
 
         if (favorites) {
             setFavorites((state) => [...state, item]);
