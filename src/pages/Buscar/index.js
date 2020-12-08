@@ -54,7 +54,13 @@ export default function Buscar() {
         setMovies(mo);
 
         if (favorites) {
-            setFavorites((state) => [...state, item]);
+            const itemMovie = favorites.find((m) => m.imdbID === item.imdbID);
+
+            if (!itemMovie) {
+                setFavorites((state) => [...state, item]);
+            } else {
+                Alert.alert('Você já adicionou esse filme!');
+            }
         } else {
             setFavorites([item]);
         }
