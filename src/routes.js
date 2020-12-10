@@ -5,8 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { Feather } from '@expo/vector-icons';
 
-import Buscar from './pages/Buscar';
-import Favoritos from './pages/Favoritos';
+import SearchMovie from './pages/SearchMovie';
+import FavoriteMovie from './pages/FavoriteMovie';
 
 import colors from './styles/colors';
 
@@ -52,8 +52,8 @@ function Home() {
                 },
             })}
         >
-            <Tab.Screen name="Buscar" component={Buscar} />
-            <Tab.Screen name="Favoritos" component={Favoritos} />
+            <Tab.Screen name="Buscar" component={SearchMovie} />
+            <Tab.Screen name="Favoritos" component={FavoriteMovie} />
         </Tab.Navigator>
     );
 }

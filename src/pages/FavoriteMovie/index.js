@@ -19,7 +19,7 @@ import colors from '../../styles/colors';
 
 import { Container } from './styles';
 
-export default function Favoritos() {
+export default function FavoriteMovie() {
     const { favorites, setFavorites } = useMovie();
     const { movies, setMovies } = useMovie();
 

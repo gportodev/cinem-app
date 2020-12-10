@@ -25,7 +25,7 @@ import {
 
 import colors from '../../styles/colors';
 
-export default function Buscar() {
+export default function SearchMovie() {
     const [movie, setMovie] = useState();
     const { movies, setMovies } = useMovie();
     const { favorites, setFavorites } = useMovie([]);
