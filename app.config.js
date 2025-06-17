@@ -39,7 +39,6 @@ module.exports = {
         backgroundColor: background,
       },
       package: BUNDLE_IDENTIFIER,
-      versionCode: 1,
       permissions: [],
     },
     web: {
