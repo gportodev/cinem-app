@@ -4,7 +4,6 @@ import { Feather } from '@expo/vector-icons';
 import { Alert } from 'react-native';
 import api from '../../services/api';
 
-import { useMovie } from '../../context/Movie';
 
 import { Button, Title } from '../../components/Button/styles';
 import { Input } from '../../components/Input/styles';
@@ -24,11 +23,12 @@ import {
 } from '../../components/Card/styles';
 
 import colors from '../../styles/colors';
+import { useMovie } from '@/context';
 
-export default function Buscar() {
+function Buscar() {
     const [movie, setMovie] = useState();
     const { movies, setMovies } = useMovie();
-    const { favorites, setFavorites } = useMovie([]);
+    const { favorites, setFavorites } = useMovie();
 
     async function searchMovie() {
         if (movie === undefined) {
@@ -130,3 +130,5 @@ export default function Buscar() {
         </Container>
     );
 }
+
+export { Buscar }
