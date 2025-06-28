@@ -3,9 +3,9 @@ import React, { JSX } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { Feather } from '@expo/vector-icons';
-import Favoritos from '@/pages/Favoritos';
+import { Favorites } from '@/pages/Favorites';
 import colors from '@/styles/colors';
-import { Buscar } from '@/pages/Buscar';
+import { Home } from '@/pages/Home';
 import { Platform } from 'react-native';
 
 
@@ -30,7 +30,7 @@ function AppTabRoutes(): JSX.Element {
                 },
             }}
         >
-            <Tab.Screen name="Buscar" component={Buscar}
+            <Tab.Screen name="Home" component={Home}
                 options={{
                     tabBarIcon: ({ size, color }) => (
                         <Feather name="search" size={size} color={color} />
@@ -38,8 +38,7 @@ function AppTabRoutes(): JSX.Element {
                     tabBarLabelStyle: labelStyle,
                 }}
             />
-            <Tab.Screen name="Favoritos" component={Favoritos}
-
+            <Tab.Screen name="Favorites" component={Favorites}
                 options={{
                     tabBarIcon: ({ size, color }) => (
                         <Feather name="star" size={size} color={color} />

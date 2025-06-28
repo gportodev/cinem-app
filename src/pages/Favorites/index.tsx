@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 
 import { Feather } from '@expo/vector-icons';
 
@@ -19,7 +19,7 @@ import colors from '../../styles/colors';
 import { Container } from './styles';
 import { useMovie } from '@/context';
 
-export default function Favoritos() {
+function Favorites(): JSX.Element {
     const { favorites, setFavorites } = useMovie();
     const { movies, setMovies } = useMovie();
 
@@ -77,3 +77,5 @@ export default function Favoritos() {
         </Container>
     );
 }
+
+export { Favorites }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { JSX, useState } from 'react';
 
 import { Feather } from '@expo/vector-icons';
 import { Alert } from 'react-native';
@@ -25,7 +25,7 @@ import {
 import colors from '../../styles/colors';
 import { useMovie } from '@/context';
 
-function Buscar() {
+function Home(): JSX.Element {
     const [movie, setMovie] = useState();
     const { movies, setMovies } = useMovie();
     const { favorites, setFavorites } = useMovie();
@@ -131,4 +131,4 @@ function Buscar() {
     );
 }
 
-export { Buscar }
+export { Home }
