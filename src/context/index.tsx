@@ -1,43 +1,33 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useState, useContext, JSX } from 'react';
+import { MovieProps, MovieListContext } from './types';
+import { GeneralInfo } from '@/dtos/GeneralInfoDTO';
 
-type MovieProps = {
-    children: ReactNode;
+const defaultValue: MovieListContext = {
+  movies: [],
+  setMovies: () => {},
+  favorites: [],
+  setFavorites: () => {},
 };
-
-type MovieContext = {
-    movies: [];
-    setMovies: ([]) => void;
-    favorites: [];
-    setFavorites: ([]) => void;
-};
-
-const defaultValue: MovieContext = {
-    movies: [],
-    setMovies: ([]) => { },
-    favorites: [],
-    setFavorites: ([]) => { },
-};
-
 
 const MovieContext = createContext(defaultValue);
 
-function MovieProvider({ children }: MovieProps) {
-    const [movies, setMovies] = useState([]);
-    const [favorites, setFavorites] = useState([]);
+function MovieProvider({ children }: MovieProps): JSX.Element {
+  const [movies, setMovies] = useState<GeneralInfo[]>([]);
+  const [favorites, setFavorites] = useState<GeneralInfo[]>([]);
 
-    return (
-        <MovieContext.Provider
-            value={{ movies, setMovies, favorites, setFavorites }}
-        >
-            {children}
-        </MovieContext.Provider>
-    );
+  return (
+    <MovieContext.Provider
+      value={{ movies, setMovies, favorites, setFavorites }}
+    >
+      {children}
+    </MovieContext.Provider>
+  );
 }
 
 function useMovie() {
-    const context = useContext(MovieContext);
+  const context = useContext(MovieContext);
 
-    return context;
+  return context;
 }
 
 export { MovieProvider, useMovie };

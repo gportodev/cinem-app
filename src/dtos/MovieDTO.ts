@@ -1,4 +1,4 @@
-import { Rating } from "./RatingDTO";
+import { Rating } from './RatingDTO';
 
 export interface Movie {
   Title: string;
