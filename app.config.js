@@ -15,39 +15,41 @@ const BUNDLE_IDENTIFIER = IS_DEV || PACKAGE_NAME;
 
 module.exports = {
   expo: {
-    name: "cinem-app",
-    slug: "cinem-app",
-    version: "1.0.1",
-    orientation: "portrait",
-    icon: "./assets/icon.png",
+    name: 'cinem-app',
+    slug: 'cinem-app',
+    version: '1.0.1',
+    orientation: 'portrait',
+    icon: './assets/icon.png',
     splash: {
-      image: "./assets/splash.png",
-      resizeMode: "contain",
+      image: './assets/splash.png',
+      resizeMode: 'contain',
       backgroundColor: background,
     },
     updates: {
       fallbackToCacheTimeout: 0,
     },
-    assetBundlePatterns: ["**/*"],
+    assetBundlePatterns: ['**/*'],
     ios: {
       supportsTablet: true,
-      bundleIdentifier: BUNDLE_IDENTIFIER
+      bundleIdentifier: BUNDLE_IDENTIFIER,
     },
     android: {
       adaptiveIcon: {
-        foregroundImage: "./assets/adaptive-icon.png",
+        foregroundImage: './assets/adaptive-icon.png',
         backgroundColor: background,
       },
       package: BUNDLE_IDENTIFIER,
       permissions: [],
     },
     web: {
-      favicon: "./assets/favicon.png",
+      favicon: './assets/favicon.png',
+      bundler: 'metro',
     },
     extra: {
       eas: {
-        projectId: "899b8f68-8761-42d6-9fe6-8cd10956d2c5",
+        projectId: '899b8f68-8761-42d6-9fe6-8cd10956d2c5',
       },
     },
+    userInterfaceStyle: 'automatic',
   },
 };

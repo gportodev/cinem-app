@@ -1,18 +1,31 @@
-node_modules/**/*
-.expo/*
-npm-debug.*
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
 *.jks
 *.p8
 *.p12
 *.key
 *.mobileprovision
 *.orig.*
-web-build/
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
 
 # macOS
 .DS_Store
+*.pem
 
-.editorconfig
-.eslintrc.js
-.prettierrc
-.idea/
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
