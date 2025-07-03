@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { JSX, useState } from 'react';
+import { View } from 'react-native';
+import { Search } from '../Search';
 
-import { Container, Title, Description } from './styles';
+type HeaderProps = {
+  searchMovie: (value: string) => void;
+};
 
-export default function Header() {
-    return (
-        <Container>
-            <Title>Cinema APP</Title>
+function Header({ searchMovie }: HeaderProps): JSX.Element {
+  const [value, setValue] = useState('');
 
-            <Description>Bem vindo ao mundo espetacular do cinema</Description>
-        </Container>
-    );
+  return (
+    <View className="pt-24 pr-16 pl-16">
+      <Search value={value} setValue={setValue} onPress={searchMovie} />
+    </View>
+  );
 }
+
+export { Header };
