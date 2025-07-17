@@ -1,17 +1,17 @@
-import React, { JSX, useState } from 'react';
-import { View } from 'react-native';
-import { Search } from '../Search';
+import React, { JSX } from 'react';
+import { View, Text } from 'react-native';
+import { MovieClapperIcon } from '@/assets/icons/Loader';
+import { style } from './style';
+import { colors } from '@/styles/colors';
 
-type HeaderProps = {
-  searchMovie: (value: string) => void;
-};
-
-function Header({ searchMovie }: HeaderProps): JSX.Element {
-  const [value, setValue] = useState('');
-
+function Header(): JSX.Element {
   return (
-    <View className="pt-24 pr-16 pl-16">
-      <Search value={value} setValue={setValue} onPress={searchMovie} />
+    <View className={style.container}>
+      <View className={style.wrap}>
+        <MovieClapperIcon width={50} height={50} color={colors.white} />
+
+        <Text className={style.text}>CineWiki</Text>
+      </View>
     </View>
   );
 }

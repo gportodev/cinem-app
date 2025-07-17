@@ -12,6 +12,7 @@ export const style = {
     'rounded-bl-2xl',
     'pl-4',
     'text-white',
+    'text-[16px]',
   ),
   button: clsx(
     'w-10',
@@ -19,6 +20,9 @@ export const style = {
     'rounded-tr-2xl',
     'rounded-br-2xl',
     'bg-red',
-    'justify-center items-center',
+    'justify-center',
+    'items-center',
+    'border-red',
+    'border-1',
   ),
 };

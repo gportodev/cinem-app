@@ -1,52 +1,42 @@
 import React from 'react';
-import { GeneralInfo } from '@/dtos/GeneralInfoDTO';
-import { FlatList, View, Text, Image } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
+import { Card } from '../Card';
+import { Header } from '../Header';
+import { EyesInverseIcon } from '@/assets/icons/Loader';
+import { colors } from '@/styles/colors';
+import { style } from './style';
+import { Search } from '../Search';
+import { CustomGeneralInfo } from '@/dtos/CustomGeneralInfoDTO';
+import { Loader } from '../Loader';
 
 type ListProps = {
-  list: GeneralInfo[];
+  list: CustomGeneralInfo[];
+  value: string;
+  setValue: (value: string) => void;
+  onPress?: () => void;
+  filter?: boolean;
+  loading?: boolean;
 };
 
-function List({ list }: ListProps) {
-  console.log();
+function List({ list, value, setValue, onPress, filter, loading }: ListProps) {
+  const renderEmpty = () => {
+    return loading ? (
+      <View className="h-52 justify-center">
+        <Loader size={'large'} />
+      </View>
+    ) : (
+      <View className={style.emptyContainer}>
+        <EyesInverseIcon width={100} height={100} color={colors.mutedSlate} />
+        <Text className={style.emptyContainerText}>
+          {!onPress ? 'Nenhum favorito' : 'Nenhuma busca'} no momento...
+        </Text>
+      </View>
+    );
+  };
 
-  const renderItem = ({ item }: { item: GeneralInfo }) => (
+  const renderItem = ({ item }: { item: CustomGeneralInfo }) => (
     <View>
-      <Text>{item.Title}</Text>
-      <Text>{item.Year}</Text>
-      <Text>{item.imdbID}</Text>
-      <Text>{item.Type}</Text>
-      <Image
-        source={{
-          uri: 'https://m.media-amazon.com/images/M/MV5BMWU5NmFlYjktMmM1NS00NGMwLWIzN2MtMWQ2YTg0ZWMyNmVjXkEyXkFqcGc@._V1_SX300.jpg',
-        }}
-      />
-      {/* <Column>
-              <Line>
-                  <Ball />
-                  <Data>{item.Title}</Data>
-              </Line>
-              <Line style={{ justifyContent: 'space-between' }}>
-                  <Data style={{ left: 25 }}>Ano:{item.Year}</Data>
-                  <Icon
-                      style={{ bottom: 13 }}
-                      onPress={() => addFavoriteMovie(item)}
-                  >
-                      {item.favorite ? (
-                          <Feather
-                              name="star"
-                              size={24}
-                              color={colors.comp_icon_active}
-                          />
-                      ) : (
-                          <Feather
-                              name="star"
-                              size={24}
-                              color={colors.comp_icon_inative}
-                          />
-                      )}
-                  </Icon>
-              </Line>
-          </Column> */}
+      <Card item={item} />
     </View>
   );
 
@@ -56,8 +46,23 @@ function List({ list }: ListProps) {
       renderItem={renderItem}
       keyExtractor={item => item.imdbID}
       showsVerticalScrollIndicator={false}
+      ListHeaderComponent={
+        <View className={style.headerContainer}>
+          <Header />
+          <Search
+            value={value}
+            setValue={setValue}
+            onPress={onPress}
+            filter={filter}
+          />
+        </View>
+      }
+      ListHeaderComponentStyle={{
+        paddingBottom: 24,
+      }}
+      ListEmptyComponent={renderEmpty}
       contentContainerStyle={{
-        alignItems: 'center',
+        paddingHorizontal: 24,
       }}
     />
   );

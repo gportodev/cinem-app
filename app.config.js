@@ -1,5 +1,3 @@
-const background = '#ffffff';
-
 //trim() para o "development "
 // console.log(`[${process.env.APP_VARIANT}]`);
 const APP_VARIANT = (process.env.APP_VARIANT || '').trim();
@@ -20,11 +18,6 @@ module.exports = {
     version: '1.0.1',
     orientation: 'portrait',
     icon: './assets/icon.png',
-    splash: {
-      image: './assets/splash.png',
-      resizeMode: 'contain',
-      backgroundColor: background,
-    },
     updates: {
       fallbackToCacheTimeout: 0,
     },
@@ -32,11 +25,17 @@ module.exports = {
     ios: {
       supportsTablet: true,
       bundleIdentifier: BUNDLE_IDENTIFIER,
+      icon: {
+        dark: './src/assets/icons/png/ios-dark.png',
+        light: './src/assets/icons/png/ios-light.png',
+        tinted: './src/assets/icons/png/ios-tinted.png',
+      },
     },
     android: {
       adaptiveIcon: {
-        foregroundImage: './assets/adaptive-icon.png',
-        backgroundColor: background,
+        foregroundImage: './src/assets/icons/png/adaptive-icon.png',
+        monochromeImage: './src/assets/icons/png/adaptive-icon.png',
+        backgroundColor: '#111111',
       },
       package: BUNDLE_IDENTIFIER,
       permissions: [],
@@ -51,5 +50,19 @@ module.exports = {
       },
     },
     userInterfaceStyle: 'automatic',
+    plugins: [
+      [
+        'expo-splash-screen',
+        {
+          backgroundColor: '#ffffff',
+          image: './src/assets/icons/png/splash-icon-dark.png',
+          dark: {
+            image: './src/assets/icons/png/splash-icon-light.png',
+            backgroundColor: '#111111',
+          },
+          imageWidth: 200,
+        },
+      ],
+    ],
   },
 };

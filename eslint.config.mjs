@@ -6,6 +6,7 @@ import { defineConfig } from 'eslint/config';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import reactHooks from 'eslint-plugin-react-hooks';
 import eslintPluginImport from 'eslint-plugin-import';
+import pluginQuery from '@tanstack/eslint-plugin-query';
 
 export default defineConfig([
   js.configs.recommended,
@@ -13,6 +14,7 @@ export default defineConfig([
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   eslintPluginPrettierRecommended,
+  ...pluginQuery.configs['flat/recommended'],
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     plugins: {
