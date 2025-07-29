@@ -1,9 +1,9 @@
-export default {
-    back: '#1f2923',
-    comp_back_one: '#647687',
-    comp_back_two: '#FFFFFF',
-    comp_icon_active: '#007FF8',
-    comp_icon_inative: '#D2D2D2',
-    comp_plac_color: '#000000',
-    comp_tab_view: '#33FFFF',
+export const colors = {
+  obsidian: '#111111',
+  graphite: '#161616',
+  mutedSlate: '#535353',
+  slate: '#181818',
+  red: '#AD3D3D',
+  white: '#FFFFFF',
+  yellow: '#EBBE3E',
 };
