@@ -23,12 +23,13 @@ function AppTabRoutes(): JSX.Element {
           borderTopWidth: 0,
           height: 64,
         },
+
         tabBarHideOnKeyboard: true,
         tabBarLabel: ({ children, color, focused }) => (
           <Text
             style={{
               color,
-              fontFamily: focused ? fontFamily.bold : fontFamily.regular,
+              fontFamily: focused ? fontFamily.semiBold : fontFamily.regular,
             }}
           >
             {children}
@@ -40,18 +41,14 @@ function AppTabRoutes(): JSX.Element {
         name="Início"
         component={Home}
         options={{
-          tabBarIcon: ({ size, color }) => (
-            <HomeIcon width={size} height={size} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <HomeIcon color={color} />,
         }}
       />
       <Tab.Screen
         name="Favoritos"
         component={Favorites}
         options={{
-          tabBarIcon: ({ size, color }) => (
-            <HeartOutlinedIcon width={size} height={size} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <HeartOutlinedIcon color={color} />,
         }}
       />
     </Tab.Navigator>

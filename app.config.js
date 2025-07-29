@@ -39,6 +39,7 @@ module.exports = {
       },
       package: BUNDLE_IDENTIFIER,
       permissions: [],
+      edgeToEdgeEnabled: true,
     },
     web: {
       favicon: './assets/favicon.png',
