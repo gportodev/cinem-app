@@ -15,7 +15,7 @@ module.exports = {
   expo: {
     name: 'cinem-app',
     slug: 'cinem-app',
-    version: '1.0.1',
+    version: '1.0.2',
     orientation: 'portrait',
     icon: './assets/icon.png',
     updates: {
